@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import { StyledNavbar } from './Navbar.styled';
 
 const Navbar = () => {
     return (
         <StyledNavbar>
-            <a href="">Accueil</a>
-            <a href="">Panier</a>
+            <Link to="/">Accueil</Link>
+            <Link to="/cart">Panier</Link>
         </StyledNavbar>
     )
 }
