@@ -1,11 +1,11 @@
-import React from 'react'
+import { StyledNavbar } from './Navbar.styled';
 
 const Navbar = () => {
     return (
-        <div>
+        <StyledNavbar>
             <a href="">Accueil</a>
             <a href="">Panier</a>
-        </div>
+        </StyledNavbar>
     )
 }
 

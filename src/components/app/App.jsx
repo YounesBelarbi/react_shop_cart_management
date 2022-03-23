@@ -1,14 +1,14 @@
-import Container from '../container/Container';
+import Container from '../Layout/container/Container';
 import Home from '../home/Home';
 
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Container>
         <Home />
       </Container>
-    </div >
+    </>
   );
 }
 
