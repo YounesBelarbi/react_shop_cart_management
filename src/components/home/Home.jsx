@@ -6,10 +6,11 @@ const Home = () => {
         <>
             <StyledTitle>Mes produits</StyledTitle>
             <StyledHome>
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+                <Product page="home" />
+                <Product page="home" />
+                <Product page="home" />
+                <Product page="home" />
+
             </StyledHome>
         </>
     )
