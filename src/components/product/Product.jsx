@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
+import CartContext from '../../context/CartContext';
 import { StyledProduct } from './Product.Styled';
 
 
 const Product = ({ page, productData }) => {
+    const context = useContext(CartContext);
     const [quantity, setQuantity] = useState('')
 
-    const addToCart = () => {
-
+    const addToCart = (productData) => {
+        context.updateCartContent(currentCart => [...currentCart, { productData, quantity }]);
     }
 
     return (
@@ -15,7 +17,7 @@ const Product = ({ page, productData }) => {
             <img src={productData.thumbnailUrl} alt="" />
             <p >{productData.title}</p>
             <input type="number" value={quantity} onChange={e => setQuantity(e.target.value)} />
-            <button onClick={() => { addToCart() }}>{page == "home" ? "Ajouter au panier" : "Supprimer le produit"}</button>
+            <button onClick={() => { addToCart(productData) }}>{page == "home" ? "Ajouter au panier" : "Supprimer le produit"}</button>
         </StyledProduct >
     )
 }

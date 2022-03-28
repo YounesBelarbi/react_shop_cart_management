@@ -1,23 +1,25 @@
 import { StyledTitle } from "../home/Home.styled";
-import Product from "../product/Product";
 import { StyledCart } from "./Cart.styled";
+import { useContext } from 'react';
+import CartContext from '../../context/CartContext';
+import CartContent from './CartContent';
+
 
 const Cart = () => {
-    return (
 
+    const context = useContext(CartContext);
+
+    return (
         <>
             <StyledTitle>mon panier</StyledTitle>
             <StyledCart>
-                <Product page="cart" />
-                <Product page="cart" />
-                <Product page="cart" />
-                <Product page="cart" />
-                <Product page="cart" />
+                {context.cartContent && context.cartContent.map(product => {
+                    return (
+                        <CartContent product={product} />
+                    )
+                })}
             </StyledCart>
-
-
         </>
-
     )
 }
 
