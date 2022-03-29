@@ -13,9 +13,9 @@ const Cart = () => {
         <>
             <StyledTitle>mon panier</StyledTitle>
             <StyledCart>
-                {context.cartContent && context.cartContent.map(product => {
+                {context.cartContent && context.cartContent.map((product, index) => {
                     return (
-                        <CartContent product={product} />
+                        <CartContent product={product} index={index} />
                     )
                 })}
             </StyledCart>

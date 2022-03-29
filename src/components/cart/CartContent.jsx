@@ -3,8 +3,8 @@ import { StyledProduct } from '../product/Product.Styled';
 import { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
 
-const CartContent = ({ product }) => {
-
+const CartContent = ({ product, index }) => {
+    console.log({ ...product });
     const context = useContext(CartContext);
     const [quantity, setQuantity] = useState(product.quantity)
 
@@ -15,11 +15,12 @@ const CartContent = ({ product }) => {
     }
 
     const setQuantityToCart = (newQuantity) => {
-        context.updateCartContent([{ ...product, quantity: newQuantity }]);
+        const currentCartContent = [...context.cartContent];
+        currentCartContent[index] = { ...product, quantity: newQuantity };
+        context.updateCartContent(currentCartContent);
     }
 
     const handleChange = (e) => {
-        console.log(e.target.value)
         setQuantity(e.target.value)
         setQuantityToCart(e.target.value)
     }
