@@ -4,7 +4,6 @@ import { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
 
 const CartContent = ({ product, index }) => {
-    console.log({ ...product });
     const context = useContext(CartContext);
     const [quantity, setQuantity] = useState(product.quantity)
 
