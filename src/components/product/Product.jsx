@@ -9,7 +9,12 @@ const Product = ({ page, productData }) => {
     const [quantity, setQuantity] = useState('')
 
     const addToCart = (productData) => {
-        context.updateCartContent(currentCart => [...currentCart, { productData, quantity }]);
+        const currentCartContent = [...context.cartContent];
+        const checkIfProductInCart = product => product.productData.id === productData.id;
+
+        if (!currentCartContent.some(checkIfProductInCart)) {
+            context.updateCartContent(currentCart => [...currentCart, { productData, quantity }]);
+        }
     }
 
     return (
