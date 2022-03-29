@@ -12,7 +12,7 @@ const Product = ({ page, productData }) => {
         const currentCartContent = [...context.cartContent];
         const checkIfProductInCart = product => product.productData.id === productData.id;
 
-        if (!currentCartContent.some(checkIfProductInCart)) {
+        if (!currentCartContent.some(checkIfProductInCart) && quantity > 0) {
             context.updateCartContent(currentCart => [...currentCart, { productData, quantity }]);
         }
     }
@@ -21,7 +21,7 @@ const Product = ({ page, productData }) => {
         <StyledProduct page={page} >
             <img src={productData.thumbnailUrl} alt="" />
             <p >{productData.title}</p>
-            <input type="number" value={quantity} onChange={e => setQuantity(e.target.value)} />
+            <input min="0" type="number" value={quantity} onChange={e => setQuantity(e.target.value)} />
             <button onClick={() => { addToCart(productData) }}>{page == "home" ? "Ajouter au panier" : "Supprimer le produit"}</button>
         </StyledProduct >
     )

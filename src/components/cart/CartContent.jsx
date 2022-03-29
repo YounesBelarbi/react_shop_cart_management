@@ -30,7 +30,7 @@ const CartContent = ({ product, index }) => {
         <StyledProduct page="cart" key={product.productData.id}>
             <img src={product.productData.thumbnailUrl} alt="" />
             <p >{product.productData.title}</p>
-            <input type="number" value={quantity} onChange={handleChange} />
+            <input min="0" type="number" value={quantity} onChange={handleChange} />
             <button onClick={() => { deleteFromCart(product.productData.id) }}>Supprimer le produit</button>
         </StyledProduct >
     )
