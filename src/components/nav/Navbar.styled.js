@@ -11,4 +11,12 @@ export const StyledNavbar = styled.nav`
         color: #fff;
         font-weight: bold;
     }
+
+    & span {
+        background-color:red;
+        border-radius: 50%;
+        width: 19px;
+        text-align: center;
+        color: #fff;
+    }
 `
